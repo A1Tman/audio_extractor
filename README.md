@@ -1,90 +1,75 @@
 # Audio Extractor GUI
 
-Audio Extractor GUI is a user-friendly tool built with PyQt5 that allows you to extract audio from video files with ease. The application supports output formats `m4a-aac`, `m4a-alac`, and `flac`.
+I needed to extract audio from video files regularly. Existing tools were either command-line only or bloated. This is a straightforward PyQt5 GUI wrapper around FFmpeg that handles the most common use cases.
 
-## Features
+## What it does
 
-- **Simple and Intuitive GUI**: Built with PyQt5.
-- **Audio Formats**: Supports `m4a-aac` (lossy), `m4a-alac` (lossless), and `flac` (lossless) audio formats.
-- **Logging**: Automatically generates logs for each extraction, stored in the `logs/` directory.
-- **Cross-Platform**: Can be run on Windows, macOS, and Linux.
+- Extracts audio from video files using FFmpeg
+- Supports `m4a-aac` (lossy), `m4a-alac` (lossless), and `flac` (lossless) output formats
+- Automatically logs all operations to `logs/` directory
+- Runs on Windows, macOS, and Linux
+
+## Requirements
+
+- Python 3.6+
+- FFmpeg (must be in system PATH)
 
 ## Installation
 
-### Prerequisites
+Clone and install dependencies:
 
-- **Python 3.6+**: Ensure that Python is installed on your system.
-- **ffmpeg**: The `ffmpeg` tool is required for extracting audio.
+```bash
+git clone https://github.com/A1Tman/audio_extractor
+cd audio_extractor
+pip install -r requirements.txt
+```
 
-### Steps to Install
+Install FFmpeg:
 
-1. **Clone the Repository**:
-    ```bash
-    git clone https://github.com/A1Tman/audio_extractor
-    cd audio_extractor
-    ```
+**Ubuntu:**
+```bash
+sudo apt-get install ffmpeg
+```
 
-2. **Install Python Dependencies**:
-    ```bash
-    pip install -r requirements.txt
-    ```
+**macOS:**
+```bash
+brew install ffmpeg
+```
 
-3. **Ensure `ffmpeg` is Installed**:
-    - On **Ubuntu**:
-        ```bash
-        sudo apt-get install ffmpeg
-        ```
-    - On **macOS** (using Homebrew):
-        ```bash
-        brew install ffmpeg
-        ```
-    - On **Windows**:
-        - Download `ffmpeg` from the [official site](https://ffmpeg.org/download.html) and add it to your system's PATH.
+**Windows:**
+Download from [ffmpeg.org](https://ffmpeg.org/download.html) and add to PATH.
 
-4. **Run the Application**:
-    ```bash
-    python audio_extractor_gui.py
-    ```
+## Running the application
 
-### Optional: Create an Executable
+```bash
+python audio_extractor_gui.py
+```
 
-To create a standalone executable that can be run by double-clicking:
+## Creating a standalone executable
 
-1. **Install PyInstaller**:
-    ```bash
-    pip install pyinstaller
-    ```
+If you prefer a double-clickable executable:
 
-2. **Create the Executable**:
-    ```bash
-    pyinstaller --onefile --windowed audio_extractor_gui.py
-    ```
+```bash
+pip install pyinstaller
+pyinstaller --onefile --windowed audio_extractor_gui.py
+```
 
-3. **Locate the Executable**:
-    - The executable will be in the `dist/` directory. You can double-click to run it.
+The executable will be in the `dist/` directory.
 
 ## Usage
 
-1. **Open the Application**: Double-click the executable or run the script using Python.
+1. Run the application
+2. Browse for your video file
+3. Select output format from dropdown
+4. Click "Extract Audio"
+5. Check the logs if anything goes wrong
 
-2. **Select a Video File**: Click on "Browse" to select the video file you want to extract audio from.
-
-3. **Choose the Output Format**: Select the desired audio format from the dropdown menu (`m4a-aac`, `m4a-alac`, `flac`).
-
-4. **Extract Audio**: Click "Extract Audio" to start the extraction process. A log file will be generated in the `logs/` directory.
-
-5. **View Results**: Once completed, a message will confirm whether the extraction was successful.
+The extracted audio file will be saved in the same directory as the source video.
 
 ## Contributing
 
-Contributions are welcome! If you would like to contribute, please fork the repository, create a new branch, and submit a pull request.
+Fork, make changes, submit pull request. Standard procedure.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- **PyQt5**: For the amazing GUI framework.
-- **ffmpeg**: The powerful multimedia framework used for audio extraction.
-- **Python**: The programming language that made this project possible.
+MIT License. See LICENSE file.
